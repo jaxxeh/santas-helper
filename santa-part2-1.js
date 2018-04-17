@@ -19,12 +19,8 @@ fs.readFile('./input.txt', (err, data) => {
       break;
     }
   }
-<<<<<<< HEAD
   if (floor !== TARGET_FLOOR) {
     console.log('floor not reached');
   }
-=======
-  console.log('floor not reached');
->>>>>>> 4d4da6ca077e5728ee93287b1fc459402fb2676e
   console.timeEnd('fc2-1');
 });
