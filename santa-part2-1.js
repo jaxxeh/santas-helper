@@ -15,9 +15,10 @@ fs.readFile('./input.txt', (err, data) => {
     position++;
     e === 40 ? floor++ : floor--;
     if (floor === TARGET_FLOOR) {
+      console.log(position);
       break;
     }
   }
-  console.log(position);
+  console.log('floor not reached');
   console.timeEnd('fc2-1');
 });
