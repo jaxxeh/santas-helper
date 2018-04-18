@@ -1,10 +1,21 @@
-const fs = require('fs');
-
-fs.readFile('./input.txt', (err, data) => {
-  console.time('fc2-2');
-  if (err) {
-    console.log(err);
+function santa21(data) {
+  // An answer to part 2 of the challenge, building up on santa3.js
+  // The idea is to keep track of the position in the buffer, and to
+  // stop iteration when we get to the desired floor
+  const TARGET_FLOOR = -1;
+  let floor = 0,
+    position = 0;
+  for (const e of data) {
+    position++;
+    e === 40 ? floor++ : floor--;
+    if (floor === TARGET_FLOOR) {
+      return position;
+    }
   }
+  return 'floor not reached';
+}
+
+function santa22(data) {
   let str = data.toString();
   // A solution to part 2 using regex and recursion.
   // While the input begins with an opening parens, we look for the
@@ -18,10 +29,7 @@ fs.readFile('./input.txt', (err, data) => {
     str = str.replace(/\(\)/, '');
     position += 2;
   }
-  if (/^\)/.test(str)) {
-    console.log(position);
-  } else {
-    console.log('floor not reached');
-  }
-  console.timeEnd('fc2-2');
-});
+  return /^\)/.test(str) ? position : 'floor not reached';
+}
+
+module.exports = { santa21, santa22 };
