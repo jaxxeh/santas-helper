@@ -1,4 +1,4 @@
-function santa1(data) {
+function answer1(data) {
   const arr = data.toString().split('');
   // Consider T the total number of instructions (i.e. the size of the input),
   // U the number of 'up' instructions ['(' inputs] and D the number of
@@ -13,7 +13,7 @@ function santa1(data) {
   // return (2 * arr.filter(e => e === '(').length - arr.length);
 }
 
-function santa2(data) {
+function answer2(data) {
   // Using the array.reduce method, we initialize the floor (which
   // is the accumulator in our reducer) to 0, then iterate through
   // the elements of the array, adding 1 to the accumulator on an
@@ -27,7 +27,7 @@ function santa2(data) {
     }, 0);
 }
 
-function santa3(data) {
+function answer3(data) {
   // A similar approach to array.reduce, but using the built-in iterator
   // that comes with the Buffer class in Node.
   // We iterate through the entire buffer, increasing the floor when the
@@ -39,7 +39,7 @@ function santa3(data) {
   return floor;
 }
 
-function santa4(data) {
+function answer4(data) {
   let str = data.toString();
   // A last approach using regular expressions, slightly less efficient
   // but interesting nonetheless.
@@ -56,4 +56,4 @@ function santa4(data) {
   return m ? m[2].length - m[1].length : 0;
 }
 
-module.exports = { santa1, santa2, santa3, santa4 };
+module.exports = { answer1, answer2, answer3, answer4 };

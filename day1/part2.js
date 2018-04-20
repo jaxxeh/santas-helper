@@ -1,4 +1,4 @@
-function santa21(data) {
+function answer1(data) {
   // An answer to part 2 of the challenge, building up on santa3.js
   // The idea is to keep track of the position in the buffer, and to
   // stop iteration when we get to the desired floor
@@ -15,7 +15,7 @@ function santa21(data) {
   return 'floor not reached';
 }
 
-function santa22(data) {
+function answer2(data) {
   let str = data.toString();
   // A solution to part 2 using regex and recursion.
   // While the input begins with an opening parens, we look for the
@@ -32,4 +32,4 @@ function santa22(data) {
   return /^\)/.test(str) ? position : 'floor not reached';
 }
 
-module.exports = { santa21, santa22 };
+module.exports = { answer1, answer2 };
