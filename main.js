@@ -33,6 +33,18 @@ const d9p2 = require('./day9/part2');
 const d10p1 = require('./day10/part1');
 const d10p2 = require('./day10/part2');
 
+const d11p1 = require('./day11/part1');
+const d11p2 = require('./day11/part2');
+
+const d12p1 = require('./day12/part1');
+const d12p2 = require('./day12/part2');
+
+const d13p1 = require('./day13/part1');
+const d13p2 = require('./day13/part2');
+
+const d14p1 = require('./day14/part1');
+const d14p2 = require('./day14/part2');
+
 let data;
 
 // advent 2015 day 1 data
@@ -128,6 +140,42 @@ doTest(data, d10p1.answer1, "Jaxxeh's day10 part1 answer1", 10);
 
 // advent 2015 day 10 part 2
 doTest(data, d10p2.answer1, "Jaxxeh's day10 part2 answer1", 1);
+
+// advent 2015 day 11 data
+data = 'hepxcrrq';
+
+// advent 2015 day 11 part 1
+doTest(data, d11p1.answer1, "Jaxxeh's day11 part1 answer1", 10);
+
+// advent 2015 day 11 part 2
+doTest(data, d11p2.answer1, "Jaxxeh's day11 part2 answer1", 1);
+
+// advent 2015 day 12 data
+data = fs.readFileSync('./day12/input.txt');
+
+// advent 2015 day 12 part 1
+doTest(data, d12p1.answer1, "Jaxxeh's day12 part1 answer1", 1);
+
+// advent 2015 day 12 part 2
+doTest(data, d12p2.answer1, "Jaxxeh's day12 part2 answer1", 1);
+
+// advent 2015 day 13 data
+data = fs.readFileSync('./day13/input.txt');
+
+// advent 2015 day 13 part 1
+doTest(data, d13p1.answer1, "Jaxxeh's day13 part1 answer1", 1);
+
+// advent 2015 day 13 part 2
+doTest(data, d13p2.answer1, "Jaxxeh's day13 part2 answer1", 1);
+
+// advent 2015 day 14 data
+data = fs.readFileSync('./day14/input.txt');
+
+// advent 2015 day 14 part 1
+doTest(data, d14p1.answer1, "Jaxxeh's day14 part1 answer1", 1);
+
+// advent 2015 day 14 part 2
+doTest(data, d14p2.answer1, "Jaxxeh's day14 part2 answer1", 1);
 
 // console.log(
 //   data
