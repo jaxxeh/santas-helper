@@ -1,22 +1,4 @@
-const happ = {
-    '01': 0,
-    '10': 0,
-    '02': 0,
-    '20': 0,
-    '03': 0,
-    '30': 0,
-    '04': 0,
-    '40': 0,
-    '05': 0,
-    '50': 0,
-    '06': 0,
-    '60': 0,
-    '07': 0,
-    '70': 0,
-    '08': 0,
-    '80': 0
-  },
-  names = ['Myself'];
+let happiness, names;
 
 function swap(arr, i, j) {
   const tmp = arr[arr.length - i];
@@ -28,14 +10,14 @@ function compHappiness(arr) {
   return arr
     .map((c, i, a) => {
       return (
-        happ[`${c}${a[(i + 1) % a.length]}`] +
-        happ[`${a[(i + 1) % a.length]}${c}`]
+        happiness[`${c}${a[(i + 1) % a.length]}`] +
+        happiness[`${a[(i + 1) % a.length]}${c}`]
       );
     })
     .reduce((acc, r) => acc + r);
 }
 
-function answer1(data) {
+function parseRelations(data) {
   data
     .toString()
     .split('\n')
@@ -53,15 +35,25 @@ function answer1(data) {
       } else {
         i2 = names.indexOf(m[4]);
       }
-      happ[`${i1}${i2}`] = Number.parseInt(m[3]) * (m[2] === 'lose' ? -1 : 1);
+      happiness[`${i1}${i2}`] =
+        Number.parseInt(m[3]) * (m[2] === 'lose' ? -1 : 1);
     });
+}
 
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+function optimizeHapiness() {
   const table = [...names.keys()];
   let maxHappiness = compHappiness(table),
     currentHappiness = maxHappiness;
-  let bestTable = [...table];
 
-  for (let i = 1; i < 40320; i++) {
+  for (let i = 1; i < factorial(names.length - 1); i++) {
     if (i % 35280 === 0) {
       swap(table, 8, 1);
     } else if (i % 30240 === 0) {
@@ -98,12 +90,44 @@ function answer1(data) {
     currentHappiness = compHappiness(table);
     if (currentHappiness > maxHappiness) {
       maxHappiness = currentHappiness;
-      bestTable = [...table];
     }
   }
-
-  console.log(bestTable);
   return maxHappiness;
 }
 
-module.exports = { answer1 };
+const part1 = {
+  answer1: data => {
+    happiness = {};
+    names = [];
+    parseRelations(data);
+    return optimizeHapiness();
+  }
+};
+
+const part2 = {
+  answer1: data => {
+    happiness = {
+      '01': 0,
+      '10': 0,
+      '02': 0,
+      '20': 0,
+      '03': 0,
+      '30': 0,
+      '04': 0,
+      '40': 0,
+      '05': 0,
+      '50': 0,
+      '06': 0,
+      '60': 0,
+      '07': 0,
+      '70': 0,
+      '08': 0,
+      '80': 0
+    };
+    names = ['Myself'];
+    parseRelations(data);
+    return optimizeHapiness();
+  }
+};
+
+module.exports = { part1, part2 };

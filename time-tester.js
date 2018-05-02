@@ -5,14 +5,14 @@
 // Input params:
 // Buffer data (data to run the callback on)
 // function callback (callback to test using the provided data)
-// int runs (# of runs to average processing time over - defaults to 1000)
+// int runs (# of runs to average processing time over - defaults to 1)
 // string name (the name of the script being tested)
 //
 // Output:
 // Logs the name of the script, the number of runs, the result of
 // the callback, and the average time of execution to the screen
 
-function doTest(data, callback, name, runs = 1000) {
+function doTest(data, callback, name, runs = 1) {
   let time,
     total = 0,
     ret;

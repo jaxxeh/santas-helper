@@ -28,15 +28,25 @@ function iterateObj(obj) {
   }
 }
 
-function answer1(data) {
-  const obj = JSON.parse(data.toString());
-
-  iterateObj(obj);
-
-  return JSON.stringify(obj)
+function objSum(data) {
+  return data
     .match(/(\-?\d+)/g)
     .map(e => Number.parseInt(e))
     .reduce((acc, e) => acc + e);
 }
 
-module.exports = { answer1 };
+const part1 = {
+  answer1: data => {
+    return objSum(data.toString());
+  }
+};
+
+const part2 = {
+  answer1: data => {
+    const obj = JSON.parse(data.toString());
+    iterateObj(obj);
+    return objSum(JSON.stringify(obj));
+  }
+};
+
+module.exports = { part1, part2 };

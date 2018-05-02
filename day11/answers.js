@@ -22,8 +22,16 @@ function nextPwd(pwd) {
   return newPwd;
 }
 
-function answer1(data) {
-  return nextPwd(nextPwd(data));
-}
+const part1 = {
+  answer1: data => {
+    return nextPwd(data.toString().slice(0, -1));
+  }
+};
 
-module.exports = { answer1 };
+const part2 = {
+  answer1: data => {
+    return nextPwd(nextPwd(data.toString().slice(0, -1)));
+  }
+};
+
+module.exports = { part1, part2 };

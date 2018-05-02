@@ -120,13 +120,20 @@ function parseOps(data) {
     });
 }
 
-function answer1(data) {
-  const wiring1 = parseOps(data);
+const part1 = {
+  answer1: data => {
+    const wiring = parseOps(data);
+    return resolver(wiring);
+  }
+};
 
-  const wiring2 = parseOps(data);
-  wiring2.find(s => s.wire === 'b').input = resolver(wiring1);
+const part2 = {
+  answer1: data => {
+    const wiring1 = parseOps(data);
+    const wiring2 = parseOps(data);
+    wiring2.find(s => s.wire === 'b').input = resolver(wiring1);
+    return resolver(wiring2);
+  }
+};
 
-  return resolver(wiring2);
-}
-
-module.exports = { answer1 };
+module.exports = { part1, part2 };
